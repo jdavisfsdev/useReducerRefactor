@@ -38,22 +38,22 @@ const initialState = {
 };
 
 function reducer(state, action) {
-  console.log(action);
+
   switch(action.type) {
     case 'undo':
       return { ...state, 
-        after:[state.current, state.after], 
+        after: [state.current, ...state.after], 
         current: state.before[state.before.length - 1], 
         before: state.before.slice(0, -1) };
     case 'redo':
       return { ...state,
-        before: [state.before, state.current],
+        before: [...state.before, state.current],
         current: state.after[0],
         after: state.after.slice(1)
       };
     case 'record':
       return { ...state,
-        before: [state.before, state.current],
+        before: [...state.before, state.current],
         current: action.payload
       };   
   }
