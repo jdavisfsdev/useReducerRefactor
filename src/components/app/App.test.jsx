@@ -11,7 +11,7 @@ describe('App component', () => {
     const input = screen.getByTestId('input');
 
     fireEvent.change(input, { target: { value: '#00FF00' } });
-    console.log(input.value);
+
     expect(input.value).toBe('#00ff00');
 
     fireEvent.click(undo);
