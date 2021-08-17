@@ -6,7 +6,6 @@ describe('App component', () => {
   it('Behavior testing', () => {
     render(<App />);
 
-    const display = screen.getByTestId('display');
     const redo = screen.getByTestId('redo');
     const undo = screen.getByTestId('undo');
     const input = screen.getByTestId('input');
